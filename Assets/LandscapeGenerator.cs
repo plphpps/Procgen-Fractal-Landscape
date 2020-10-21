@@ -17,7 +17,7 @@ public class LandscapeGenerator : MonoBehaviour
     public int scale = 20;
     public int octaves = 3;
     public float amplitudePersistance = 0.5f;
-    public float frequencyPersistance = 0.5f;
+    public float frequencyPersistance = 1f;
     public float offsetX;
     public float offsetY;
     public bool scroll;

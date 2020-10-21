@@ -56,13 +56,15 @@ public class LandscapeGenerator : MonoBehaviour
             for(int y = 0; y < height; y++) {
                 float frequency = 1f;
                 float amplitude = 1f;
-                float heightVal = 0f;
+                float heightVal = 0f; // Use to compound octaves together
 
                 // Add octaves to heightMap
                 for (int i = 0; i < octaves; i++) {
+                    // Frequency is added to the x and y values
                     float xCoord = (float)x / scale * frequency + offsetX;
                     float yCoord = (float)y / scale * frequency + offsetY;
                     float perlinValue = Mathf.PerlinNoise(xCoord, yCoord);
+                    // Amplitude is added directly to the perlin value
                     heightVal += perlinValue * amplitude;
 
                     // Each subsequent octave increases affect of the frequency and decreases the amplitude
@@ -74,7 +76,7 @@ public class LandscapeGenerator : MonoBehaviour
                     if (heightVal > maxNoiseVal)
                         maxNoiseVal = heightVal;
                 }
-                map[x, y] = heightVal;
+                map[x, y] = heightVal; // Set heightmap to octaves all added together
             }
         }
 

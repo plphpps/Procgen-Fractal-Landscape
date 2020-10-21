@@ -38,9 +38,11 @@ public class LandscapeGenerator : MonoBehaviour
     }
 
     public void GenerateLandscape() {
+        // Initialize terrain
         terrain.terrainData.heightmapResolution = width + 1;
         terrain.terrainData.size = new Vector3(width, depth, height);
-
+        
+        // Generate heightmap values and apply them to the terrain
         heightMap = GenerateHeightMap();
         terrain.terrainData.SetHeights(0, 0, heightMap);
         //SetTexture(30);

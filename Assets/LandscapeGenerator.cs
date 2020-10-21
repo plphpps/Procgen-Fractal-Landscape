@@ -11,7 +11,8 @@ public class LandscapeGenerator : MonoBehaviour
     public int width = 100;
     public int height = 100;
     public int depth = 20;
-
+    
+    // Noise Controls
     [Header("Noise Controls")]
     [Min(0.0001f)]
     public int scale = 20;
@@ -25,7 +26,8 @@ public class LandscapeGenerator : MonoBehaviour
 
 
     private float[,] heightMap;
-
+    
+    // Called every frame in Play mode
     void Update()
     {
         GenerateLandscape();
@@ -53,7 +55,8 @@ public class LandscapeGenerator : MonoBehaviour
 
         float minNoiseVal = float.MaxValue;
         float maxNoiseVal = float.MinValue;
-
+        
+        // Set each (x,y) coordinate of the heightmap
         for (int x = 0; x < width; x++) {
             for(int y = 0; y < height; y++) {
                 float frequency = 1f;
@@ -72,7 +75,8 @@ public class LandscapeGenerator : MonoBehaviour
                     // Each subsequent octave increases affect of the frequency and decreases the amplitude
                     amplitude *= amplitudePersistance; // persistance values should be between 0 and 1
                     frequency *= frequencyPersistance; // persistance values should be above 1
-
+                    
+                    // Keep track of min and max values for normalization later
                     if (heightVal < minNoiseVal)
                         minNoiseVal = heightVal;
                     if (heightVal > maxNoiseVal)

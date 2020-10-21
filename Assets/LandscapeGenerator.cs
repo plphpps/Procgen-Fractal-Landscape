@@ -88,7 +88,8 @@ public class LandscapeGenerator : MonoBehaviour
 
         return map;
     }
-
+    
+    // Messing around trying to get textures to work
     private void SetTexture(float percent) {
         float[,,] alphaData = terrain.terrainData.GetAlphamaps(0, 0, terrain.terrainData.alphamapWidth, terrain.terrainData.alphamapHeight);
 

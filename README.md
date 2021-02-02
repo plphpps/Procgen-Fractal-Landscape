@@ -1,5 +1,5 @@
 # Procgen-Fractal-Landscape
-Procgen Fractal Landscape for 4810 Presentation
+Procgen Fractal Landscape for CSCI 4810 Presentation
 
 Basic implementation of fractal landscape using perlin noise and Unity.
 
